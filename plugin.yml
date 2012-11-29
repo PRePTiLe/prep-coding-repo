@@ -1,0 +1,8 @@
+name: MotherNature
+main: com.github.preptile.mothernature.mothernature
+version: _Beta_17
+
+commands:
+  MN_motd:
+    description: Prints The MessageOfTheDay.
+    usage: /MN_motd
