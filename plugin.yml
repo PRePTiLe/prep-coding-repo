@@ -1,5 +1,5 @@
 name: GreenThumbs
-main: com.github.preptile.mothernature.mothernature
+main: com.github.preptile.mothernature.GreenThumbs
 version: 1.0
 
 commands:
