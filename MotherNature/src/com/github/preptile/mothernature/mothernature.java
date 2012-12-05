@@ -53,8 +53,9 @@ public final class mothernature extends JavaPlugin
 			if (sender instanceof Player)
 			
 			{
-				sender.sendMessage("Mother Nature Plugin");
-				sender.sendMessage("Golden Tools do Magic Stuff.");
+				sender.sendMessage("");
+				sender.sendMessage("MotherNature Plugin By PReP");
+				sender.sendMessage("Golden Hoe Does Magic Stuff");
 				sender.sendMessage("");
 				
 				return true;

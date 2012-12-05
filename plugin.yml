@@ -1,6 +1,6 @@
 name: MotherNature
 main: com.github.preptile.mothernature.mothernature
-version: 1.19b
+version: 1.0
 
 commands:
   MN_motd:
