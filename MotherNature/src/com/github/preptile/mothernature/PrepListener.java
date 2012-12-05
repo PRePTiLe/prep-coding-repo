@@ -1,6 +1,6 @@
 package com.github.preptile.mothernature;
 
-import java.lang.String;
+
 import java.util.Random;
 
 import org.bukkit.Location;
@@ -16,36 +16,26 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
+
 import org.bukkit.inventory.PlayerInventory;
 
 public class PrepListener implements Listener
 
 {
+
 	
-	protected String motd="";
 	
-	public PrepListener(String motd) 
+	public PrepListener(mothernature plugin) 
 	
 	{
-
-		this.motd=motd;
-
-	}
-	
-	
-	@EventHandler(priority=EventPriority.MONITOR)
-	public void onPlayerJoinEvent(PlayerJoinEvent e)
-
-	{
 		
-		e.getPlayer().sendMessage("");
-		e.getPlayer().sendMessage(motd);
-		e.getPlayer().sendMessage("");
-		
+        // Register Listener
+       
+		plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        
 	}
 
-	
+	// ----------------------------------------------------------------------------- //
 	
     @EventHandler(priority=EventPriority.MONITOR)
     public void onPlayerMagic(PlayerInteractEvent e) 
@@ -55,12 +45,14 @@ public class PrepListener implements Listener
         Player player = e.getPlayer();
         PlayerInventory pi = player.getInventory();
         
-        if(e.getAction() == Action.RIGHT_CLICK_BLOCK) // Catch Right Click On Block
+        // --------------------------------------------------------------------------//
+        
+        if(e.getAction() == Action.RIGHT_CLICK_BLOCK) // Catch If Right Clicked On Block
         
         {   
         	
         	if(pi.getItemInHand().getTypeId() == 294) // Check If Gold_Hoe (item 294) was used in hand
-        	
+        
         	{
         		
         		if(e.getClickedBlock().getType() == Material.SAPLING) // Check If The Block Clicked consisted of a Sapling
@@ -70,11 +62,11 @@ public class PrepListener implements Listener
         			Block TheBlock = e.getClickedBlock();
         			
         		    byte MN_TreeType = 0;
-        			TreeType MN_TreeGrowType;
+        			TreeType MN_TreeGrowType;                      // These Sets Up Variables For Later
         			MN_TreeGrowType = TreeType.BIG_TREE;
         		    
         			Random RandomGen = new Random();
-    				int RandomNumber = RandomGen.nextInt(12);
+    				int RandomNumber = RandomGen.nextInt(12);  // These Randomizes a value used for tree base-lenght
     				RandomNumber = RandomNumber + 1;
         		
 
@@ -163,7 +155,6 @@ public class PrepListener implements Listener
     							
     							TheBlockNow = TheBlock.getRelative(BlockFace.UP,RunsBack);
     							TheBlockNow.setType(Material.AIR);
-    							// TheBlockNow.setData((byte) 0);
     							
     	    				}
     						
@@ -202,8 +193,7 @@ public class PrepListener implements Listener
         							
         							TheBlockNow = TheBlock.getRelative(BlockFace.UP,RunsBack);
         							TheBlockNow.setType(Material.AIR);
-        							// TheBlockNow.setData((byte) 0);
-        							
+        						
         	    				}
         						
         						Location BlockPlace = TheBlockNow.getLocation();	
@@ -232,12 +222,18 @@ public class PrepListener implements Listener
         					
         					World TheWorld = player.getWorld();
         					TheWorld.playSound(BlockPlace, Sound.FIZZ, 10, -2);
+        					// short TheItem = pi.getItemInHand().getDurability();
+        				  
+        					//player.getItemInHand().getDurability();
+        					
+        					player.getItemInHand().setDurability((short) +1);
+        					
     					
         				}
         				
     				}
         			
-                }
+                } // --------- Sapling Control End --------
         		
         	}
         	

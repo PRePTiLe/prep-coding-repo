@@ -12,18 +12,19 @@ public final class mothernature extends JavaPlugin
 
 {	
 	
-	protected String motd="";
+	
 	
 	@Override
 	public void onEnable()
 	
 	{
-		loadConfig();
+		// loadConfig();
 		
-		String motd = getConfig().getString("strings.motd");
-		PrepListener eventHandler = new PrepListener(motd);
-		getServer().getPluginManager().registerEvents(eventHandler, this);
-		getLogger().info("Plugin MotherNature Has Been Enabled");	
+	
+		new PrepListener(this);
+		
+		getLogger().info("Plugin MotherNature Has Been Enabled");
+		
 	}
 
 	@Override
@@ -52,8 +53,8 @@ public final class mothernature extends JavaPlugin
 			if (sender instanceof Player)
 			
 			{
-				sender.sendMessage("");
-				sender.sendMessage(motd);
+				sender.sendMessage("Mother Nature Plugin");
+				sender.sendMessage("Golden Tools do Magic Stuff.");
 				sender.sendMessage("");
 				
 				return true;
@@ -62,7 +63,7 @@ public final class mothernature extends JavaPlugin
 			else
 			
 			{
-				sender.sendMessage("This command can only be run by an actual Player");
+				sender.sendMessage("This command should only be run by an actual Player");
 			}
 			
 			return true;

@@ -1,8 +1,8 @@
 name: MotherNature
 main: com.github.preptile.mothernature.mothernature
-version: _Beta_17
+version: 1.19b
 
 commands:
   MN_motd:
-    description: Prints The MessageOfTheDay.
-    usage: /MN_motd
+    description: Prints info about the plugin.
+    usage: /mn_motd
