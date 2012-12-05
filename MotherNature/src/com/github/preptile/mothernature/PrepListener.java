@@ -25,7 +25,7 @@ public class PrepListener implements Listener
 
 	
 	
-	public PrepListener(mothernature plugin) 
+	public PrepListener(GreenThumbs plugin) 
 	
 	{
 		

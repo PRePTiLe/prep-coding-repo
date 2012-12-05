@@ -1,8 +1,8 @@
-name: MotherNature
+name: GreenThumbs
 main: com.github.preptile.mothernature.mothernature
 version: 1.0
 
 commands:
-  MN_motd:
+  gt_motd:
     description: Prints info about the plugin.
-    usage: /mn_motd
+    usage: /gt_motd
