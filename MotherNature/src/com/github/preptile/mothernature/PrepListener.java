@@ -222,11 +222,9 @@ public class PrepListener implements Listener
         					
         					World TheWorld = player.getWorld();
         					TheWorld.playSound(BlockPlace, Sound.FIZZ, 10, -2);
-        					// short TheItem = pi.getItemInHand().getDurability();
-        				  
-        					//player.getItemInHand().getDurability();
         					
-        					player.getItemInHand().setDurability((short) +1);
+        					short Durance = player.getItemInHand().getDurability();
+            				player.getItemInHand().setDurability((short) (Durance+ 2));
         					
     					
         				}
@@ -234,6 +232,76 @@ public class PrepListener implements Listener
     				}
         			
                 } // --------- Sapling Control End --------
+        		
+        		
+        		
+        		
+        		if(e.getClickedBlock().getType() == Material.LONG_GRASS) // Check If The Block Clicked consisted of Long Grass
+        		
+        		{
+        			
+        			Block TheBlock = e.getClickedBlock();
+        			
+        			
+    				Location BlockPlace = TheBlock.getLocation();	
+    					
+    				
+    				TheBlock.setType(Material.LEAVES);
+    				   
+    				
+    				TheBlock = TheBlock.getRelative(BlockFace.WEST,1);
+    					
+    				if(TheBlock.getType() == Material.AIR || TheBlock.getType() == Material.LONG_GRASS)
+    				
+    				{
+    				
+    					TheBlock.setType(Material.LEAVES);
+    					
+    				}
+    				
+    				
+    				TheBlock = TheBlock.getRelative(BlockFace.WEST,-2);
+    					
+    				if(TheBlock.getType() == Material.AIR || TheBlock.getType() == Material.LONG_GRASS)
+        				
+    				{
+    				
+    					TheBlock.setType(Material.LEAVES);
+    				
+    				}
+    				
+    				
+    				TheBlock = TheBlock.getRelative(BlockFace.WEST,1);
+    				
+    				TheBlock = TheBlock.getRelative(BlockFace.NORTH,1);
+    					
+    				if(TheBlock.getType() == Material.AIR || TheBlock.getType() == Material.LONG_GRASS)
+        				
+    				{
+    				
+    					TheBlock.setType(Material.LEAVES);
+    					
+    				}	
+    					
+    				TheBlock = TheBlock.getRelative(BlockFace.NORTH,-2);
+    					
+    				if(TheBlock.getType() == Material.AIR || TheBlock.getType() == Material.LONG_GRASS)
+        				
+    				{
+    				
+    					TheBlock.setType(Material.LEAVES);
+    					
+    				}
+    				
+    				
+    				World TheWorld = player.getWorld();
+    				TheWorld.playSound(BlockPlace, Sound.FIZZ, 10, -2);
+    				
+    				short Durance = player.getItemInHand().getDurability();
+    				player.getItemInHand().setDurability((short) (Durance+ 1));
+    				
+        			
+        		}
         		
         	}
         	
